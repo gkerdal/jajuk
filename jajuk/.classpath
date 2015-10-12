@@ -53,7 +53,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/qdwizard-4.1.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_25"/>
 	<classpathentry kind="lib" path="lib/cobra_jajuk-0.98.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

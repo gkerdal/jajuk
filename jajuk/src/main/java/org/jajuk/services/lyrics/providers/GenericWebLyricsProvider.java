@@ -20,8 +20,6 @@
  */
 package org.jajuk.services.lyrics.providers;
 
-import ext.services.network.NetworkUtils;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -30,6 +28,8 @@ import org.jajuk.base.Track;
 import org.jajuk.util.Const;
 import org.jajuk.util.DownloadManager;
 import org.jajuk.util.log.Log;
+
+import ext.services.network.NetworkUtils;
 
 /**
  * GenericProvider is a basic processor for web-based lyrics providers. It
@@ -183,6 +183,8 @@ public abstract class GenericWebLyricsProvider implements ILyricsProvider {
    */
   String cleanHtml(String lyrics) {
     String ret = lyrics.replaceAll("<br />", "\n");
+    ret = ret.replaceAll("<br/>", "\n");
+    ret = ret.replaceAll("<br>", "\n");
     ret = ret.replaceAll("&#8217;", "'");
     ret = ret.replaceAll("&#8211;", "-");
     ret = ret.replaceAll("\u0092", "'");
@@ -193,6 +195,8 @@ public abstract class GenericWebLyricsProvider implements ILyricsProvider {
     ret = ret.replaceAll("<b>", "");
     ret = ret.replaceAll("</b>", "");
     ret = ret.replaceAll("\t", "");
+    ret = ret.replaceAll("&quot;", "'");
+    ret = ret.replaceAll("&#039;", "'");
     ret = ret.replaceAll("&#146;", "'");
     ret = ret.replaceAll("&#133;", "…");
     return ret;

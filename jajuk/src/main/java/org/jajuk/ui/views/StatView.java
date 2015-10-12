@@ -371,7 +371,7 @@ public class StatView extends ViewAdapter {
           Messages.getString("StatView.13"), // domain axis label
           Messages.getString("StatView.14"), // range axis label
           cdata, // data
-          PlotOrientation.VERTICAL, // orientation
+          PlotOrientation.HORIZONTAL, // orientation
           false, // include legend
           true, // tooltips
           false, // urls

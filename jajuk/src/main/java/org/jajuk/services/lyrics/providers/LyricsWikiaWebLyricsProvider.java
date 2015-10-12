@@ -20,22 +20,22 @@
  */
 package org.jajuk.services.lyrics.providers;
 
-import ext.services.network.NetworkUtils;
-
 import java.net.MalformedURLException;
 
 import org.apache.commons.lang.StringUtils;
 import org.jajuk.util.Const;
 import org.jajuk.util.log.Log;
 
+import ext.services.network.NetworkUtils;
+
 /**
  * Lyrics Provider extracting lyrics from lyrics.wikia.com
  */
 public class LyricsWikiaWebLyricsProvider extends GenericWebLyricsProvider {
   /** URL pattern used by jajuk to retrieve lyrics. */
-  private static final String URL = "http://lyrics.wikia.com/api.php?artist=%artist&song=%title";
+  private static final String URL = "http://lyrics.wikia.com/api.php?action=lyrics&artist=%artist&song=%title";
   /** URL pattern to web page (see ILyricsProvider interface for details). */
-  private static final String WEB_URL = "http://lyrics.wikia.com/api.php?artist=%artist&song=%title";
+  private static final String WEB_URL = "http://lyrics.wikia.com/api.php?action=lyrics&artist=%artist&song=%title";
 
   /**
    * Instantiates a new lyric wiki web lyrics provider.
@@ -88,9 +88,11 @@ public class LyricsWikiaWebLyricsProvider extends GenericWebLyricsProvider {
       if (startIndex > -1) {
         ret = html.substring(startIndex + 5);
         int stopIndex = ret.indexOf("</pre>");
-        if (stopIndex > -1)
+        if (stopIndex > -1) {
           ret = ret.substring(0, stopIndex);
-        ret = cleanHtml(ret);
+          ret += "\n<-- LyricsWikia -->";
+          ret = cleanHtml(ret);
+        }
       } else {
         ret = null;
       }
