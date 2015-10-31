@@ -90,8 +90,12 @@ public class LyricsWikiaWebLyricsProvider extends GenericWebLyricsProvider {
         int stopIndex = ret.indexOf("</pre>");
         if (stopIndex > -1) {
           ret = ret.substring(0, stopIndex);
-          ret += "\n<-- LyricsWikia -->";
-          ret = cleanHtml(ret);
+          if (ret.length()<15) {
+            return null;
+          } else {
+            ret += "\n<-- LyricsWikia -->";
+            ret = cleanHtml(ret);
+          }
         }
       } else {
         ret = null;
