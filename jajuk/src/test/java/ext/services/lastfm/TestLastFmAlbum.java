@@ -25,14 +25,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import org.jajuk.TestHelpers;
+import org.jajuk.util.IconLoader;
+import org.jajuk.util.UtilString;
+
 import junit.framework.TestCase;
 import net.roarsoftware.lastfm.Album;
 import net.roarsoftware.lastfm.CallException;
 import net.roarsoftware.lastfm.Playlist;
-
-import org.jajuk.TestHelpers;
-import org.jajuk.util.IconLoader;
-import org.jajuk.util.UtilString;
 
 /**
  * .
@@ -48,7 +48,7 @@ public class TestLastFmAlbum extends TestCase {
    * .
    */
   public void testGetAlbum() {
-    Album a = Album.getInfo("Red Hot Chilli Peppers", "By The Way", UtilString.rot13(API_KEY));
+    Album a = Album.getInfo("Red Hot Chili Peppers", "By The Way", UtilString.rot13(API_KEY));
     assertNotNull(a);
     LastFmAlbum.getAlbum(a, null);
   }
@@ -58,7 +58,7 @@ public class TestLastFmAlbum extends TestCase {
    * 
    */
   public void testGetAlbumPlaylist() {
-    Album a = Album.getInfo("Red Hot Chilli Peppers", "By The Way", UtilString.rot13(API_KEY));
+    Album a = Album.getInfo("Red Hot Chili Peppers", "By The Way", UtilString.rot13(API_KEY));
     assertNotNull(a);
     try { // may fail if internet is not available
       Playlist p = Playlist.fetchAlbumPlaylist(a.getId(), UtilString.rot13(API_KEY));

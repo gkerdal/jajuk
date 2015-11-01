@@ -23,10 +23,10 @@ package ext.services.lastfm;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jajuk.util.UtilString;
+
 import junit.framework.TestCase;
 import net.roarsoftware.lastfm.Album;
-
-import org.jajuk.util.UtilString;
 
 /**
  * .
@@ -43,7 +43,7 @@ public class TestLastFmAlbumList extends TestCase {
    */
   public void testGetAlbumList() {
     List<Album> list = getAlbumList();
-    AlbumListInfo info = LastFmAlbumList.getAlbumList(list, "Red Hot Chilli Peppers");
+    AlbumListInfo info = LastFmAlbumList.getAlbumList(list, "Red Hot Chili Peppers");
     assertNotNull(info);
     assertEquals(2, info.getAlbums().size());
   }
