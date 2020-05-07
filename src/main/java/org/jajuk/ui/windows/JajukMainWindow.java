@@ -284,7 +284,7 @@ public class JajukMainWindow extends JFrame implements IJajukWindow, Observer {
 
   /**
    * Return the forced position as a rectangle or null if no forced position is provided or if the provided position is invalid
-   * <br>See http://jajuk.info/index.php/Hidden_options
+   * <br>See http://jajuk.info/manual/hidden_options.html
    * <br>The forced position is an hidden option used to force Jajuk window position manually.
    * @return the forced position as a rectangle or null
    */
